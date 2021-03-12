@@ -21,7 +21,7 @@ const DIR string = "/"
 const PATH string = "files"
 
 // HTTP - HTTP
-const HTTP string = "http://cw0319.asuscomm.com"
+const HTTP string = "http://ansible.example.com"
 
 func getFileName(ext string) string {
 	random := rand.New(rand.NewSource(time.Now().UnixNano()))
@@ -77,6 +77,6 @@ func callUploadResult(w http.ResponseWriter, fileName string, size int64) {
 }
 
 func main() {
-	http.HandleFunc("/upload", uploadFile)
-	http.ListenAndServe("127.0.0.1:8090", nil)
+	http.HandleFunc("/", uploadFile)
+	http.ListenAndServe("0.0.0.0:8090", nil)
 }
